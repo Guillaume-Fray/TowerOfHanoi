@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="artiesans" name="game_algorithm" type="game_algorithm.py"/>
+	<node pkg="artiesans" name="disk_ident" type="disk_ident.py"/>
+</launch>

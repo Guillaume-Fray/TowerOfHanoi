@@ -1,0 +1,66 @@
+Useful commands Baxter:
+	to start --> 	source /opt/ros/groovy/setup.bash
+			ros_ws
+			./baxter.sh
+			roscore
+
+	enable -->	rosrun baxter_tools enable_robot.py -e
+
+	tuck/untuck arms --> rosrun baxter_tools tuck_arms.py -u    or -t
+
+	Open/Close grippers --> rosrun baxter_examples gripper_keyboard.py
+		     then   --> W/Q
+
+	record movement --> rosrun baxter_examples joint_recorder.py -f myRecordingFile.txt
+
+	play the recorded move --> 
+		in one terminal: 
+			rosrun baxter_interface joint_trajectory_action_server.py --mode velocity
+	
+		in another terminal:
+			rosrun baxter_examples joint_trajectory_file_playback.py -f myRecordingFile.txt
+
+
+	List topics --> rostopic list
+
+	Get joint positions --> rostopic echo /robot/joint_states
+
+	View camera stream --> rosrun image_view image_view image:=/cameras/head_camera/image
+
+	List cameras --> rosrun baxter_tools camera_control.py -l
+
+	Close one camera --> rosrun baxter_tools camera_control.py -c left_hand_camera
+
+	Open one camera --> rosrun baxter_tools camera_control.py -o head_camera -r 640x400
+
+	Run a Node/Script/Program --> rosrun YourPackageName your_node_name.py
+
+
+
+	text-to-speech --> in one terminal: $ rosrun sound_play soundplay_node.py
+			   in another terminal: $ rosrun sound_play say.py "What you want to say"
+
+	speech recognition --> 	in one terminal: rostopic echo /recognizer/output
+				in another terminal: [baxter - http://10.70.10.137:11311] 					baxter@baxter-virtual-machine:~/ros_ws$ 					roslaunch rbx1_speech voice_nav_commands.launch
+
+	
+
+
+
+
+Useful packages to install:
+	Great tools rbx1 package --> 	cd ~/ros_ws/src
+					git clone https://github.com/pirobot/rbx1.git
+
+	speech recognition --> 	$ sudo apt-get install gstreamer0.10-pocketsphinx
+			 	$ sudo apt-get install ros-groovy-pocketsphinx
+				$ sudo apt-get install ros-groovy-audio-common
+				$ sudo apt-get install libasound2
+
+	text-to-speech --> done already
+
+	to publish arrays of Booleans-->  cd ~/ros_ws/src
+					  git clone -b groovy-devel https://github.com/ros/common_msgs.git
+
+
+	

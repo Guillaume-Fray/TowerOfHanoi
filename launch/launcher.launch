@@ -1,0 +1,13 @@
+<launch>
+	<node pkg="artiesans" name="cameras" type="setupCameras.py"/>
+	<node pkg="artiesans" name="face_detection" type="facedetection.py"/>
+	<node pkg="artiesans" name="game_algorithm" type="game_algorithm.py"/>
+	<node pkg="artiesans" name="error_handler" type="error_handler.py"/>
+        <node pkg="artiesans" name="voice_setup" type="voicesetup.py"/>
+	<node pkg="artiesans" name="robot_speech" type="robot_speech.py"/>
+        <node pkg="artiesans" name="disk_identification" type="disk_ident.py"/>
+	<node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+		<param name="lm" value="$(find rbx1_speech)/config/5740.lm"/>
+		<param name="dict" value="$(find rbx1_speech)/config/5740.dic"/>
+	</node>
+</launch>

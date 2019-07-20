@@ -1,0 +1,13 @@
+rosrun baxter_interface joint_trajectory_action_server.py --mode velocity
+rosrun baxter_examples joint_trajectory_file_playback.py -f start
+rosrun sound_play soundplay_node.py
+rostopic echo /recognizer/output
+roslaunch rbx1_speech voice_nav_commands.launch
+
+rosrun artiesans setupCameras.py
+rosrun artiesans disk_ident.py
+rosrun artiesans error_handler.py
+rosrun artiesans game_algorithm.py
+rosrun artiesans movement_control.py
+rosrun artiesans facedetection.py
+rosrun artiesans robot_speech.py
